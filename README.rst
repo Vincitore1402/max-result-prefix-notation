@@ -62,7 +62,7 @@ Another feature of our function is possibility to set variables either as a sing
 
 So the final task for us would be:
 
-Implementing a function `max_result_expression(expression, variables)`
+Implementing a function **max_result_expression(expression, variables)**
 that takes as inputs:
 
 * expression, a String containing an expression in prefix notation that might contain variables
