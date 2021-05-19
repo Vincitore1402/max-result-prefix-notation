@@ -86,9 +86,7 @@ def parse_expression(expression: str) -> []:
     return formatted_expression
 
 
-def prefix_expression(
-    expression: [str], expression_variables: Dict
-) -> int:
+def prefix_expression(expression: [str], expression_variables: Dict) -> int:
     """
     Evaluates the prefix expression
     :param expression:
@@ -140,14 +138,11 @@ def max_result_expression(
         variables_combinations = get_variables_combinations(variables)
 
         max_result = max(
-            [
-                prefix_expression(parsed_expression, it)
-                for it in variables_combinations
-            ]
+            [prefix_expression(parsed_expression, it) for it in variables_combinations]
         )
 
         return max_result
-    except CalculationException:
+    except BaseException:
         return None
 
 

@@ -14,6 +14,7 @@ def test_get_variables_combinations():
     ]
 
     assert arrays_difference(combinations, expected_result) == []
+    assert arrays_difference(get_variables_combinations({}), [{}]) == []
 
 
 def test_basic_prefix_notation():
@@ -29,6 +30,11 @@ def test_invalid_values():
     assert max_result_expression("+ 1", {}) is None
     assert max_result_expression("9", {}) is None
     assert max_result_expression("-+1 5 3", {}) is None
+    assert max_result_expression("+ * 7 x z / 5", {"x": (5, 14), "z": (0, 3)}) is None
+    assert max_result_expression("", {}) is None
+    assert max_result_expression("", {"x": (1, -5)}) is None
+    assert max_result_expression("+ x            x", {"x": (1, -5)}) is None
+    assert max_result_expression("+ x            x", {"x": (-9, -5)}) is None
 
 
 def test_prefix_notation_with_variables():
